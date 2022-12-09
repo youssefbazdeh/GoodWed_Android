@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_outline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/checklistFragment"
+        android:icon="@drawable/ic_outline_checklist_24"
+        android:title="Checklist" />
+    <item
+        android:id="@+id/budgetFragment"
+        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
+        android:title="Budget" />
+    <item
+        android:id="@+id/guestsFragment"
+        android:icon="@drawable/ic_outline_supervisor_account_24"
+        android:title="Guests" />
+    <item
+        android:id="@+id/vendorsFragment"
+        android:icon="@drawable/ic_outline_home_repair_service_24"
+        android:title="Vendors" />
+<!--    <item-->
+<!--        android:id="@+id/menuFragment"-->
+<!--        android:icon="@drawable/ic_outline_menu_24"-->
+<!--        android:title="Menu" />-->
+</menu>

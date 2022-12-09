@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">goodwed</string>
+    <string name="signup_button">Sign up</string>
+    <string name="phone_button">Continue with phone number</string>
+    <string name="google_button">Continue with Google</string>
+    <string name="facebook_button">Continue with Facebook</string>
+    <string name="login">Log in</string>
+    <string name="logintitle">Welcome to GoodWed</string>
+    <string name="description">Connectez-vous et commencez à vous prèparer</string>
+    <string name="email">E-mail</string>
+    <string name="mustNotBeEmpty">Must not be empty !</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open"></string>
+    <string name="close"></string>
+</resources>

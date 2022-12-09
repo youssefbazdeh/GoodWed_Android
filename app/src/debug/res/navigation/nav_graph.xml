@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="tn.esprit.wedding.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/checklistFragment"
+        android:name="tn.esprit.wedding.ChecklistFragment"
+        android:label="fragment_checklist"
+        tools:layout="@layout/fragment_checklist" />
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="tn.esprit.wedding.BudgetFragment"
+        android:label="fragment_budget"
+        tools:layout="@layout/fragment_budget" />
+    <fragment
+        android:id="@+id/guestsFragment"
+        android:name="tn.esprit.wedding.GuestsFragment"
+        android:label="fragment_guests"
+        tools:layout="@layout/fragment_guests" />
+    <fragment
+        android:id="@+id/vendorsFragment"
+        android:name="tn.esprit.wedding.VendorsFragment"
+        android:label="fragment_vendors"
+        tools:layout="@layout/fragment_vendors" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="tn.esprit.wedding.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+</navigation>
