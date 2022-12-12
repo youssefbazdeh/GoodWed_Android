@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
@@ -33,8 +34,14 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 import me.relex.circleindicator.CircleIndicator3
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import tn.esprit.wedding.models.Wedding
 import tn.esprit.wedding.viewmodels.WeddingViewModel
+import java.io.File
+import java.io.FileOutputStream
 import java.lang.Integer.parseInt
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,7 +54,10 @@ class MarriageActivity : AppCompatActivity() {
     //private lateinit var binding: ActivityMainBinding
     private val CAMERA_REQUEST_CODE = 1
     private val GALLERY_REQUEST_CODE = 2
-    //private  lateinit var imgUri: Uri
+    private val IMAGE_GALLERY_REQUEST_CODE: Int = 2001
+    private lateinit var bitmap : Bitmap
+    private  lateinit var imgUri: Uri
+
 
     lateinit var view_pager2: ViewPager2
     private var titlesList = mutableListOf<String>()
@@ -221,6 +231,13 @@ class MarriageActivity : AppCompatActivity() {
         val tt = sdft.parse(heureTv.text.toString())
         val bb: Int = parseInt(budinputedit.text.toString(),10)
         val test : String
+        val fileDir=applicationContext.filesDir
+        val file= File(fileDir,"image.jpg")
+        val inputStream=contentResolver.openInputStream(imgUri)
+        val outputStream= FileOutputStream(file)
+        inputStream!!.copyTo(outputStream)
+        val requestBody=file.asRequestBody("image/*".toMediaTypeOrNull())
+        val image = MultipartBody.Part.createFormData("image", file.name,requestBody)
         if(homme.isChecked) {
 
             test = "Homme"
@@ -238,24 +255,16 @@ class MarriageActivity : AppCompatActivity() {
         }else {
             test2="Autre"
         }
+        val fullname = fullnameinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val partner_fullname = conjoitinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val partner_email = emailinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val wedding_name = wedinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
 
 
-        val wedding = Wedding (
-            "",
-            fullnameinputedit.text.toString().trim(),
-            conjoitinputedit.text.toString().trim(),
-            test,
-            test2,
-            emailinputedit.text.toString().trim(),
-            wedinputedit.text.toString().trim(),
-            dd,
-            tt,
-            bb,
-            0
-        )
+
 
         weddingViewModel = ViewModelProvider(this).get(WeddingViewModel::class.java)
-        weddingViewModel.addWed(wedding)
+        weddingViewModel.addWed(fullname,partner_fullname,test.toRequestBody("text/plain".toMediaTypeOrNull()),test2.toRequestBody("text/plain".toMediaTypeOrNull()),partner_email,wedding_name,dd,tt,bb,image)
         weddingViewModel._addWeddingLiveData.observe(this, androidx.lifecycle.Observer<Wedding>{
             if (it!=null){
                 Toast.makeText(applicationContext, "ajout succes !", Toast.LENGTH_LONG).show()
@@ -267,6 +276,35 @@ class MarriageActivity : AppCompatActivity() {
             }
         })
     }
+    /*fun AddCar(){
+
+        val fileDir=applicationContext.filesDir
+        val file= File(fileDir,"image.jpg")
+        val inputStream=contentResolver.openInputStream(imgUri)
+        val outputStream= FileOutputStream(file)
+        inputStream!!.copyTo(outputStream)
+        val requestBody=file.asRequestBody("image/*".toMediaTypeOrNull())
+        val image = MultipartBody.Part.createFormData("image", file.name,requestBody)
+
+
+        // val file: File = File(imgUri.path!!)
+        // val requestFile =RequestBody.create("multipart/form-data".toMediaTypeOrNull(),file)
+        // val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
+        //val option= option.ge.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val model=modelET.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val marque=marque.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val desription=descriptionET.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        carViewModel= ViewModelProvider(this).get(CarViewModel::class.java)
+        carViewModel.AddCar(marque,model,desription,image)
+        carViewModel._CarLiveData .observe(this, Observer<Car>{
+            if (it!=null){
+                Toast.makeText(applicationContext,  file.name, Toast.LENGTH_LONG).show()
+
+            }else{
+                Toast.makeText(applicationContext,  file.name, Toast.LENGTH_LONG).show()
+            }
+        })
+    }*/*/
 
 
     private fun updateLabel(myCalendar: Calendar) {
@@ -361,7 +399,19 @@ class MarriageActivity : AppCompatActivity() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, CAMERA_REQUEST_CODE)
     }
+   /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == IMAGE_GALLERY_REQUEST_CODE) {
+            if (data != null && data.data != null) {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    imgUri= data.data!!
 
+                    image.setImageURI(imgUri)
+
+                }
+            }
+        }
+    }*/
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -372,24 +422,26 @@ class MarriageActivity : AppCompatActivity() {
 
                 CAMERA_REQUEST_CODE -> {
 
-                    val bitmap = data?.extras?.get("data") as Bitmap
+                    if (data != null && data.data != null) {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            imgUri= data.data!!
 
-                    //we are using coroutine image loader (coil)
-                    image.load(bitmap) {
-                        crossfade(true)
-                        crossfade(1000)
-                        transformations(CircleCropTransformation())
+                            image.setImageURI(imgUri)
+
+                        }
                     }
                 }
 
                 GALLERY_REQUEST_CODE -> {
 
-                    image.load(data?.data) {
-                        crossfade(true)
-                        crossfade(1000)
-                        transformations(CircleCropTransformation())
-                    }
+                    if (data != null && data.data != null) {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            imgUri= data.data!!
 
+                            image.setImageURI(imgUri)
+
+                        }
+                    }
                 }
             }
 

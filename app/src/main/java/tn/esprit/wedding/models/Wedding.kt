@@ -13,6 +13,7 @@ data class Wedding(
     var date_ceremonie : Date,
     var heure_ceremonie: Date,
     var budget: Int=0,
+    var image: String? = null,
     var __v:Int=0
 )
 data class ResponseWedding (
@@ -26,6 +27,7 @@ data class ResponseWedding (
     var date_ceremonie : Date,
     var heure_ceremonie: Date,
     var budget: Int,
+    var image: String? = null,
     var __v:Int
 )
 data class addResponse (var message: String? = null,
