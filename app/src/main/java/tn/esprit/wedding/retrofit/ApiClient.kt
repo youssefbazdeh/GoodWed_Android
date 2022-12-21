@@ -26,7 +26,7 @@ class OAuthInterceptor(context: Context): Interceptor {
 
 class ApiClient {
     companion object{
-        val URL ="http://192.168.24.33:9092/"
+        val URL ="http://192.168.234.33:9092/"
         //val URL="https://moody-kiwis-wear-196-203-207-178.loca.lt"
         var retrofitToken: Retrofit? = null
         fun getApiClientWithToken(context: Context): Retrofit? {
@@ -42,6 +42,7 @@ class ApiClient {
             }
             return retrofitToken
         }
+
         var retrofit: Retrofit? = null
         fun getApiClient(): Retrofit? {
             if (retrofit == null) {

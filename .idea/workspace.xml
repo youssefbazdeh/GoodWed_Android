@@ -13,26 +13,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cfcbf6a-1a29-433a-8589-7bf9453b4aa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/adapters/ChecklistAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/models/Checklist.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/services/ChecklistService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/viewmodels/ChecklistViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/viewmodels/TaskViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/viewmodels/UpdateChecklistViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/views/TaskActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/views/UpdateChecklistActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_add_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_check_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_close_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_edit_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_task.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_update_checklist.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_checklist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/res/menu/nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/res/menu/nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/ChecklistFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/ChecklistFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/MarriageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/MarriageActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/models/Wedding.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/models/Wedding.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/MenuFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/MenuFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/ViewPagerAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/retrofit/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/retrofit/ApiClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/services/WeddingService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/services/WeddingService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/viewmodels/WeddingViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tn/esprit/wedding/viewmodels/WeddingViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_toolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_checklist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_checklist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_menu.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +68,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -65,10 +86,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_a315f-R58N541AZWJ" />
+    <property name="DEBUGGABLE_PROCESS" value="tn.esprit.wedding" />
+    <property name="DEBUGGER_ID" value="Auto" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MiniProjetAndroid" />
@@ -85,11 +110,24 @@
       <recent name="C:\Users\USER\Desktop\wedding (2)\wedding\app\src\main\res\layout" />
       <recent name="C:\Users\USER\Desktop\wedding (2)\wedding\app\src\debug\res" />
     </key>
+    <key name="android.template.-1196373688">
+      <recent name="tn.esprit.wedding" />
+    </key>
     <key name="android.template.-765908679">
       <recent name="tn.esprit.wedding" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\USER\Desktop\wedding (2)\wedding\app\src\main\res\drawable-v24" />
+    </key>
+    <key name="android.template.-2002478368">
+      <recent name="tn.esprit.wedding.views" />
+      <recent name="tn.esprit.wedding" />
+    </key>
+    <key name="android.template.350898155">
+      <recent name="tn.esprit.wedding" />
+    </key>
+    <key name="android.template.1675706270">
+      <recent name="tn.esprit.wedding.views" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -331,8 +369,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.MarriageActivity" />
         <item itemvalue="Android App.HomeActivity" />
+        <item itemvalue="Android App.MarriageActivity" />
         <item itemvalue="Android App.LoginActivity" />
       </list>
     </recent_temporary>

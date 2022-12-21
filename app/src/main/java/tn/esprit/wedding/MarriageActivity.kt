@@ -265,7 +265,7 @@ class MarriageActivity : AppCompatActivity() {
 
         weddingViewModel = ViewModelProvider(this).get(WeddingViewModel::class.java)
         weddingViewModel.addWed(fullname,partner_fullname,test.toRequestBody("text/plain".toMediaTypeOrNull()),test2.toRequestBody("text/plain".toMediaTypeOrNull()),partner_email,wedding_name,dd,tt,bb,image)
-        weddingViewModel._addWeddingLiveData.observe(this, androidx.lifecycle.Observer<Wedding>{
+        weddingViewModel._addWeddingLiveData.observe(this, androidx.lifecycle.Observer<Wedding?>{
             if (it!=null){
                 Toast.makeText(applicationContext, "ajout succes !", Toast.LENGTH_LONG).show()
                 finish()
@@ -276,35 +276,7 @@ class MarriageActivity : AppCompatActivity() {
             }
         })
     }
-    /*fun AddCar(){
 
-        val fileDir=applicationContext.filesDir
-        val file= File(fileDir,"image.jpg")
-        val inputStream=contentResolver.openInputStream(imgUri)
-        val outputStream= FileOutputStream(file)
-        inputStream!!.copyTo(outputStream)
-        val requestBody=file.asRequestBody("image/*".toMediaTypeOrNull())
-        val image = MultipartBody.Part.createFormData("image", file.name,requestBody)
-
-
-        // val file: File = File(imgUri.path!!)
-        // val requestFile =RequestBody.create("multipart/form-data".toMediaTypeOrNull(),file)
-        // val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
-        //val option= option.ge.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        val model=modelET.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        val marque=marque.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        val desription=descriptionET.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        carViewModel= ViewModelProvider(this).get(CarViewModel::class.java)
-        carViewModel.AddCar(marque,model,desription,image)
-        carViewModel._CarLiveData .observe(this, Observer<Car>{
-            if (it!=null){
-                Toast.makeText(applicationContext,  file.name, Toast.LENGTH_LONG).show()
-
-            }else{
-                Toast.makeText(applicationContext,  file.name, Toast.LENGTH_LONG).show()
-            }
-        })
-    }*/*/
 
 
     private fun updateLabel(myCalendar: Calendar) {

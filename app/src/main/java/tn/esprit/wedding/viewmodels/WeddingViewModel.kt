@@ -15,8 +15,8 @@ import tn.esprit.wedding.services.WeddingService
 import java.util.Date
 
 class WeddingViewModel : ViewModel()  {
-    var addWeddingLiveData: MutableLiveData<Wedding> = MutableLiveData()
-    val _addWeddingLiveData : LiveData<Wedding> = addWeddingLiveData
+    var addWeddingLiveData: MutableLiveData<Wedding?> = MutableLiveData()
+    val _addWeddingLiveData : LiveData<Wedding?> = addWeddingLiveData
 
     fun addWed(fullname: RequestBody,
                partner_fullname: RequestBody,

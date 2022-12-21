@@ -108,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
                     apply()
                 }
                 Toast.makeText(applicationContext, "Login succes !"+it.accessToken, Toast.LENGTH_LONG).show()
-                startActivity(Intent(this,MarriageActivity::class.java))
+                startActivity(Intent(this,HomeActivity::class.java))
                 finish()
 
             }else{
