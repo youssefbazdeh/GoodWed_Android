@@ -35,7 +35,7 @@ class GuestsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val v = inflater.inflate(R.layout.fragment_guests, container, false)
-        toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarguest)
+        toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarmain)
         toolbar.setTitle("Guest")
         toolbar.setNavigationOnClickListener {
         }
@@ -44,13 +44,10 @@ class GuestsFragment : Fragment() {
             startActivity(intent)
             true
         }
-        addBtn = v.findViewById(R.id.addBtn)
         guestViewModel = ViewModelProvider(this).get(GuestViewModel::class.java)
         rvGuest = v.findViewById(R.id.rv_guest)
         listGuest = ArrayList()
-        addBtn.setOnClickListener {
-            startActivity(Intent(requireContext(),AddGuestActivity::class.java))
-        }
+
         getAllGuestByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
         // Inflate the layout for this fragment
     return v

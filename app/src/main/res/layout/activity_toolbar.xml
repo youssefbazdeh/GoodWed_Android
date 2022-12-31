@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteX="1dp"
         app:title="title"
         app:titleTextColor="@color/white"
-        app:titleMarginStart="130dp"
+        app:titleCentered="true"
         app:navigationIcon="@drawable/ic_baseline_menu_24"
         app:navigationIconTint="@color/white"
         app:menu="@menu/add_menu">

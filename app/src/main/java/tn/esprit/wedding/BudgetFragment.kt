@@ -37,7 +37,7 @@ class BudgetFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_budget, container, false)
 
-        toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarbudget)
+        toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarmain)
         toolbar.setTitle("Budget")
         toolbar.setNavigationOnClickListener {
         }
@@ -47,13 +47,10 @@ class BudgetFragment : Fragment() {
             true
         }
 
-        addBtn = v.findViewById(R.id.addBtn)
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
         rvBudget = v.findViewById(R.id.rv_budget)
         listBudget = ArrayList()
-        addBtn.setOnClickListener {
-            startActivity(Intent(requireContext(), AddBudgetActivity::class.java))
-        }
+
 
         getAllBudgetByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
 

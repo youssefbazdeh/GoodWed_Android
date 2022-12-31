@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:background="@drawable/home">
+        android:background="@color/white">
 
         <ImageView
             android:layout_width="match_parent"
@@ -290,7 +290,7 @@
                     android:id="@+id/budget"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30000$"
+                    android:text="0$"
                     android:textSize="20dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -354,7 +354,7 @@
                     android:id="@+id/guesttv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7"
+                    android:text="0"
                     android:textSize="20dp"/>
                 <TextView
 
@@ -376,7 +376,7 @@
                     android:id="@+id/confnb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
+                    android:text="0"
                     android:textSize="20dp" />
                 <TextView
                     android:layout_width="wrap_content"

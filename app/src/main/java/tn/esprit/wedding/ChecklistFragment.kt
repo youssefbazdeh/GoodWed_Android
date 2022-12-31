@@ -44,13 +44,11 @@ class ChecklistFragment : Fragment() {
             true
         }
 
-        addBtn = v.findViewById(R.id.addBtn)
+//        addBtn = v.findViewById(R.id.addBtn)
         checklistViewModel = ViewModelProvider(this).get(ChecklistViewModel::class.java)
         rvChecklist = v.findViewById(R.id.rv_checklist)
         listChecklist = ArrayList()
-        addBtn.setOnClickListener {
-            startActivity(Intent(requireContext(),TaskActivity::class.java))
-        }
+
 
         getAllChecklistByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
 
