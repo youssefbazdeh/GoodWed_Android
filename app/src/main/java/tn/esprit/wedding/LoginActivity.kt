@@ -91,10 +91,13 @@ class LoginActivity : AppCompatActivity() {
 
             return true
         }}
+
+
+
      fun login(){
         loginViewModel= ViewModelProvider(this).get(LoginViewModel::class.java)
          loginViewModel.login(emailinputedit.text.toString().trim(),passwordinputedit.text.toString().trim())
-         loginViewModel._logingLiveData.observe(this, Observer<loginResponse>{
+         loginViewModel._logingLiveData.observe(this, Observer<loginResponse?>{
             if (it!=null){
                 //Edit the SharedPreferences by putting all the data
                 prefs.edit().apply(){
@@ -107,6 +110,8 @@ class LoginActivity : AppCompatActivity() {
                     putString(EMAIL,it.user?.email)
                     apply()
                 }
+
+
                 Toast.makeText(applicationContext, "Login succes !"+it.accessToken, Toast.LENGTH_LONG).show()
                 startActivity(Intent(this,HomeActivity::class.java))
                 finish()
@@ -116,5 +121,8 @@ class LoginActivity : AppCompatActivity() {
             }
         })
      }
+
+
+
 }
 

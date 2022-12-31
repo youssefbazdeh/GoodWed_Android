@@ -4,7 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.util.Date
 
-@Parcelize
 data class User(
     var _id:String?=null,
     var username: String? = null,
@@ -14,7 +13,7 @@ data class User(
     var datedenaissance: Date,
     var password: String? = null,
     var __v:Int=0
-): Parcelable
+)
 
 data class ResponseUser (
     var _id:String?=null,

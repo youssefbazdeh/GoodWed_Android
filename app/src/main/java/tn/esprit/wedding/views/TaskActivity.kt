@@ -48,7 +48,6 @@ class TaskActivity : AppCompatActivity() {
     val CAMERA_REQUEST_CODE = 1
     val GALLERY_REQUEST_CODE = 2
     val IMAGE_GALLERY_REQUEST_CODE: Int = 2001
-
     lateinit var imgUri: Uri
 
     //Declaration
@@ -116,7 +115,7 @@ class TaskActivity : AppCompatActivity() {
         }
 
         addBtn.setOnClickListener {
-            addTask(this.getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull()))
+            addTask(this.getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"").toString().trim().toRequestBody("text/plain".toMediaTypeOrNull()))
         }
 
 
@@ -136,6 +135,7 @@ class TaskActivity : AppCompatActivity() {
         val note = noteinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         val status = statusinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
 
+
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         taskViewModel.addChecklist(nom,type,note,image,dd,status,user_id)
         taskViewModel._addTaskLiveData.observe(this,androidx.lifecycle.Observer<Checklist?>{
@@ -144,7 +144,7 @@ class TaskActivity : AppCompatActivity() {
                 finish()
 
             }else{
-                Toast.makeText(applicationContext, "Login failed !", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "ajout failed !", Toast.LENGTH_LONG).show()
             }
         })
 

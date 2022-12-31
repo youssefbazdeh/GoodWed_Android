@@ -18,6 +18,7 @@ class UpdateChecklistViewModel : ViewModel() {
     var updateChecklistLiveData : MutableLiveData<String?> = MutableLiveData()
     var _updateChecklistLiveData : LiveData<String?> = updateChecklistLiveData
 
+
     fun updateChecklist(
         _id:String,
         nom : RequestBody, type : RequestBody, note : RequestBody , date: Date, image : MultipartBody.Part?, status : RequestBody

@@ -6,34 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:text="Budget"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    />
-
-        </androidx.appcompat.widget.Toolbar>
-
-
+        <include
+        layout="@layout/activity_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbarhome"
+        />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp">
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -60,6 +44,7 @@
             android:src="@drawable/coeur" />
 
         <TextView
+            android:id="@+id/nmpt"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,6 +173,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/datem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/coeur"
@@ -227,15 +213,20 @@
                android:gravity="center"
                android:orientation="vertical">
            <ImageView
+
                android:layout_width="60dp"
                android:layout_height="60dp"
                android:src="@drawable/checklist"
                app:tint="#8A47EB"/>
+
                <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="0"
-               android:textSize="20dp"/>
+                   android:id="@+id/tasknb"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="-5dp"
+                   android:text="0"
+                   android:textSize="20dp" />
+
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
@@ -252,6 +243,7 @@
                    android:src="@drawable/todolist"
                    app:tint="#8A47EB"/>
            <TextView
+               android:id="@+id/nbcomp"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="0"
@@ -295,6 +287,7 @@
                     android:src="@drawable/money"
                     app:tint="#8A47EB"/>
                 <TextView
+                    android:id="@+id/budget"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="30000$"
@@ -315,6 +308,7 @@
                     android:src="@drawable/budget"
                     app:tint="#8A47EB"/>
                 <TextView
+                    android:id="@+id/used"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0%"
@@ -322,7 +316,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Used"/>
+                    android:text="Total Used"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -357,11 +351,13 @@
                     android:src="@drawable/guest"
                     app:tint="#8A47EB"/>
                 <TextView
+                    android:id="@+id/guesttv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7"
                     android:textSize="20dp"/>
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="All Guests"/>
@@ -377,6 +373,7 @@
                     android:src="@drawable/planner"
                     app:tint="#8A47EB"/>
                 <TextView
+                    android:id="@+id/confnb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3"
@@ -384,7 +381,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All Events"/>
+                    android:text="Confirmed Guests"/>
 
             </LinearLayout>
         </LinearLayout>

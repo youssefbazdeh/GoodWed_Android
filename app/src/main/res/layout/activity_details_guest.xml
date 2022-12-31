@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.DetailsGuestActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="148dp"
+                android:gravity="center"
+                android:text="Guest Details"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/updateBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_baseline_edit_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/ic_baseline_more_vert_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <TextView
+            android:id="@+id/idguest"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="ID"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:text="Name"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/nameguest1"
+            app:layout_constraintTop_toBottomOf="@+id/nameguest1" />
+
+        <TextView
+            android:id="@+id/lastnameguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Lastname"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/nameguest1"
+            app:layout_constraintTop_toBottomOf="@+id/nameguest2" />
+
+        <TextView
+            android:id="@+id/lastnameguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lastname"
+            app:layout_constraintStart_toStartOf="@+id/lastnameguest1"
+            app:layout_constraintTop_toBottomOf="@+id/lastnameguest1" />
+
+
+        <TextView
+            android:id="@+id/sexeguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sexe"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/lastnameguest1"
+            app:layout_constraintTop_toBottomOf="@+id/lastnameguest2" />
+
+        <TextView
+            android:id="@+id/sexeguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexe"
+            app:layout_constraintStart_toStartOf="@+id/sexeguest1"
+            app:layout_constraintTop_toBottomOf="@+id/sexeguest1" />
+
+        <TextView
+            android:id="@+id/groupeguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Groupe"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/sexeguest1"
+            app:layout_constraintTop_toBottomOf="@+id/sexeguest2" />
+
+        <TextView
+            android:id="@+id/groupeguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groupe"
+            app:layout_constraintStart_toStartOf="@+id/groupeguest1"
+            app:layout_constraintTop_toBottomOf="@+id/groupeguest1" />
+
+        <TextView
+            android:id="@+id/phoneguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:text="Phone"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/nameguest1"
+            app:layout_constraintTop_toTopOf="@+id/nameguest1" />
+
+        <TextView
+            android:id="@+id/phoneguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            app:layout_constraintStart_toStartOf="@+id/phoneguest1"
+            app:layout_constraintTop_toBottomOf="@+id/phoneguest1" />
+
+        <TextView
+            android:id="@+id/emailguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Email"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/phoneguest1"
+            app:layout_constraintTop_toBottomOf="@+id/phoneguest2" />
+
+        <TextView
+            android:id="@+id/emailguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            app:layout_constraintStart_toStartOf="@+id/emailguest1"
+            app:layout_constraintTop_toBottomOf="@+id/emailguest1" />
+
+        <TextView
+            android:id="@+id/adresseguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Adresse"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/emailguest1"
+            app:layout_constraintTop_toBottomOf="@+id/emailguest2" />
+
+        <TextView
+            android:id="@+id/adresseguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adresse"
+            app:layout_constraintStart_toStartOf="@+id/adresseguest1"
+            app:layout_constraintTop_toBottomOf="@+id/adresseguest1" />
+
+        <TextView
+            android:id="@+id/noteguest1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Note"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/adresseguest1"
+            app:layout_constraintTop_toBottomOf="@+id/adresseguest2" />
+
+        <TextView
+            android:id="@+id/noteguest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            app:layout_constraintStart_toStartOf="@+id/noteguest1"
+            app:layout_constraintTop_toBottomOf="@+id/noteguest1" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

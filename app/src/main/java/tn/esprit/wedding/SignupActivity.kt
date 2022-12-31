@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
@@ -46,6 +47,7 @@ class SignupActivity : AppCompatActivity() {
 
             if (validationFullname()&& validationEmail()&&validationUsername()&&validationPassword()){
                 SignUp()
+
 
             }
 
@@ -111,17 +113,21 @@ class SignupActivity : AppCompatActivity() {
             return true
         }}
 
-    private  fun SignUp(){
+    private  fun SignUp() {
         val dd = sdf.parse(dateTv.text.toString())
         val user = User("", fullnameinputedit.text.toString().trim(),usernameinputedit.text.toString().trim(),emailinputedit.text.toString(),"user",dd,passwordinputedit.text.toString().trim(),0)
-
         signUpViewModel= ViewModelProvider(this).get(SignUpViewModel::class.java)
         signUpViewModel.signUp(user)
-        signUpViewModel._signUpLiveData.observe(this, androidx.lifecycle.Observer<User>{
+        signUpViewModel._signUpLiveData.observe(this, androidx.lifecycle.Observer<User?>{
             if (it!=null){
+
+                val intent = Intent(this, MarriageActivity::class.java)
+                val user_id = it._id
+                intent.putExtra("user_id",user_id)
+                Log.i("user________id",user_id!!)
                 Toast.makeText(applicationContext, "ajout succes !", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
+                startActivity(intent)
 
             }else{
                 Toast.makeText(applicationContext, "Login failed !", Toast.LENGTH_LONG).show()

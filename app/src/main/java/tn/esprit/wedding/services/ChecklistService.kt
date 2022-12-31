@@ -5,16 +5,25 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import tn.esprit.wedding.models.Checklist
+import tn.esprit.wedding.models.ChecklistResponse
+import tn.esprit.wedding.models.ResponseChecklist
 import tn.esprit.wedding.models.Wedding
 import java.util.*
+import kotlin.collections.ArrayList
 
 interface ChecklistService {
-    @GET("checklist/{user_id}")
+    @GET("checklist/user/{id}")
     fun getAllChecklistByIdUser(
-        @Path("user_id") user_id: String,
+        @Path("id") id: String,
     ): Call<MutableList<Checklist>>
+
+    @GET("checklist/{id}")
+    fun getChecklistById(
+        @Path("id") id : String,
+    ): Call<ResponseChecklist>
+
     @Multipart
-    @POST("checklist/{user_id}")
+    @POST("checklist/user/{user_id}")
     fun addChecklist(
         @Part("nom") nom: RequestBody,
         @Part("type") type: RequestBody,
@@ -24,10 +33,11 @@ interface ChecklistService {
         @Part("status") status: RequestBody,
         @Part("user_id") user_id: RequestBody,
     ): Call<Checklist>
+
     @Multipart
-    @PUT("checklist/{_id}")
+    @PUT("checklist/{idtask}")
     fun updateChecklist (
-        @Path("_id") _id : String,
+        @Path("idtask") idtask : String,
         @Part("nom") nom : RequestBody,
         @Part("type") type : RequestBody,
         @Part("note") note : RequestBody,
@@ -35,6 +45,11 @@ interface ChecklistService {
         @Part("date") date: Date,
         @Part("status") status: RequestBody,
     ):Call<String>
+
+    @DELETE("checklist/{idtask}")
+    fun deleteTaskById(
+        @Path("idtask") idtask: String,
+    ): Call<String>
 }
 
 

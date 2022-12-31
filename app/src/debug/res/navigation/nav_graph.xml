@@ -35,4 +35,10 @@
         android:name="tn.esprit.wedding.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/addvhecklist"
+        android:name="tn.esprit.wedding.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+
 </navigation>

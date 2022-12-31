@@ -10,9 +10,10 @@ data class Wedding(
     var partner_sexe: String? = null,
     var partner_email: String? = null,
     var wedding_name: String? = null,
-    var date_ceremonie : Date,
-    var heure_ceremonie: Date,
+    var date_ceremonie : Date?,
+    var heure_ceremonie: Date?,
     var budget: Int=0,
+    var user_id : String? = null,
     var image: String? = null,
     var __v:Int=0
 )
@@ -24,9 +25,11 @@ data class ResponseWedding (
     var partner_sexe: String? = null,
     var partner_email: String? = null,
     var wedding_name: String? = null,
-    var date_ceremonie : Date,
-    var heure_ceremonie: Date,
+    var date_ceremonie : Date?,
+    var heure_ceremonie: Date?,
     var budget: Int,
+    var user_id : String? = null,
+
     var image: String? = null,
     var __v:Int
 )

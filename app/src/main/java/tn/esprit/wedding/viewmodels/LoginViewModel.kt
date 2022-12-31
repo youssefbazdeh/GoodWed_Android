@@ -12,11 +12,11 @@ import tn.esprit.wedding.retrofit.ApiClient
 import tn.esprit.wedding.services.UserService
 
 class LoginViewModel : ViewModel() {
-    var loginLiveData : MutableLiveData<loginResponse> = MutableLiveData()
-    var _logingLiveData : LiveData<loginResponse> = loginLiveData
+    var loginLiveData : MutableLiveData<loginResponse?> = MutableLiveData()
+    var _logingLiveData : LiveData<loginResponse?> = loginLiveData
 
 
-    fun getLoginObserver(): MutableLiveData<loginResponse> {
+    fun getLoginObserver(): MutableLiveData<loginResponse?> {
         return  loginLiveData
     }
     fun login(email:String,password:String){

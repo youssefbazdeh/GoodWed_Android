@@ -36,6 +36,7 @@ import com.karumi.dexter.listener.single.PermissionListener
 import me.relex.circleindicator.CircleIndicator3
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import tn.esprit.wedding.models.Wedding
@@ -134,13 +135,13 @@ class MarriageActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.create_wed)
         val myCalendar = Calendar.getInstance()
 
-        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+        val datePicker = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateLabel(myCalendar)
         }
-        val timePicker = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+        val timePicker = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
             myCalendar.set(Calendar.HOUR, hourOfDay)
             myCalendar.set(Calendar.MINUTE, minute)
             updateLabelTime(myCalendar)
@@ -165,6 +166,7 @@ class MarriageActivity : AppCompatActivity() {
         emailinputedit = dialog.findViewById(R.id.emailinputedit)
         wedinputedit = dialog.findViewById(R.id.wedinputedit)
 
+        var id = intent.getStringExtra("user_id")!!.toRequestBody("plain/text".toMediaTypeOrNull())
 
 
         image.setOnClickListener {
@@ -172,7 +174,7 @@ class MarriageActivity : AppCompatActivity() {
             pictureDialog.setTitle("Select Action")
             val pictureDialogItem = arrayOf("Select photo from Gallery",
                 "Capture photo from Camera")
-            pictureDialog.setItems(pictureDialogItem) { dialog, which ->
+            pictureDialog.setItems(pictureDialogItem) { _, which ->
 
                 when (which) {
                     0 -> gallery()
@@ -198,7 +200,7 @@ class MarriageActivity : AppCompatActivity() {
         }
         addBtn = dialog.findViewById<Button>(R.id.addBtn)
         addBtn.setOnClickListener {
-            addWed()
+            addWed(id!!)
             dialog.dismiss()
 
         }
@@ -226,7 +228,7 @@ class MarriageActivity : AppCompatActivity() {
 
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun addWed() {
+    private fun addWed(user_id : RequestBody) {
         val dd = sdf.parse(dateTv.text.toString())
         val tt = sdft.parse(heureTv.text.toString())
         val bb: Int = parseInt(budinputedit.text.toString(),10)
@@ -264,7 +266,7 @@ class MarriageActivity : AppCompatActivity() {
 
 
         weddingViewModel = ViewModelProvider(this).get(WeddingViewModel::class.java)
-        weddingViewModel.addWed(fullname,partner_fullname,test.toRequestBody("text/plain".toMediaTypeOrNull()),test2.toRequestBody("text/plain".toMediaTypeOrNull()),partner_email,wedding_name,dd,tt,bb,image)
+        weddingViewModel.addWed(fullname,partner_fullname,test.toRequestBody("text/plain".toMediaTypeOrNull()),test2.toRequestBody("text/plain".toMediaTypeOrNull()),partner_email,wedding_name,dd,tt,bb,user_id,image)
         weddingViewModel._addWeddingLiveData.observe(this, androidx.lifecycle.Observer<Wedding?>{
             if (it!=null){
                 Toast.makeText(applicationContext, "ajout succes !", Toast.LENGTH_LONG).show()

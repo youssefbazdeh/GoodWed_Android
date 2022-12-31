@@ -1,33 +1,59 @@
 package tn.esprit.wedding
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import tn.esprit.wedding.R
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.appbar.MaterialToolbar
+import tn.esprit.wedding.models.Budget
+import tn.esprit.wedding.models.Checklist
+import tn.esprit.wedding.models.Guest
+import tn.esprit.wedding.models.Wedding
+import tn.esprit.wedding.viewmodels.BudgetViewModel
+import tn.esprit.wedding.viewmodels.ChecklistViewModel
+import tn.esprit.wedding.viewmodels.GuestViewModel
+import tn.esprit.wedding.viewmodels.WeddingViewModel
+import tn.esprit.wedding.views.AddGuestActivity
+import tn.esprit.wedding.views.UpdateGuestActivity
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var tasknb : TextView
+    lateinit var listChecklist: MutableList<Checklist>
+    lateinit var listMarriage: MutableList<Wedding>
+    lateinit var listGuest: MutableList<Guest>
+    lateinit var listBudget: MutableList<Budget>
+    lateinit var checklistViewModel: ChecklistViewModel
+    lateinit var guestViewModel: GuestViewModel
+    lateinit var mariageViewModel: WeddingViewModel
+    lateinit var budgetViewModel: BudgetViewModel
+    lateinit var budget : TextView
+    lateinit var guesttv : TextView
+    lateinit var nmpt : TextView
+    lateinit var datem : TextView
+    lateinit var nbcomp : TextView
+    lateinit var used : TextView
+    lateinit var confnb : TextView
+    lateinit var menubtn : ImageView
+    lateinit var toolbar : Toolbar
+    val myFormat = "dd-MM-yyyy"
+    val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +61,123 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+        val v = inflater.inflate(R.layout.fragment_home, container, false)
+        checklistViewModel = ViewModelProvider(this).get(ChecklistViewModel::class.java)
+        mariageViewModel = ViewModelProvider(this).get(WeddingViewModel::class.java)
+        guestViewModel = ViewModelProvider(this).get(GuestViewModel::class.java)
+        budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
+        budget = v.findViewById(R.id.budget)
+        tasknb = v.findViewById(R.id.tasknb)
+        guesttv = v.findViewById(R.id.guesttv)
+        nmpt = v.findViewById(R.id.nmpt)
+        datem = v.findViewById(R.id.datem)
+        nbcomp = v.findViewById(R.id.nbcomp)
+        used = v.findViewById(R.id.used)
+        confnb = v.findViewById(R.id.confnb)
+        listChecklist = ArrayList()
+        listMarriage = ArrayList()
+        listGuest = ArrayList()
+        listBudget = ArrayList()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+       toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarmain)
+        toolbar.setTitle("Home")
+        toolbar.setNavigationOnClickListener {
+        }
+        toolbar.setOnMenuItemClickListener {
+            val intent = Intent(requireContext(),AddGuestActivity::class.java)
+            startActivity(intent)
+            true
+        }
+
+
+
+
+
+
+        Log.i("budget marriage",listMarriage.toString())
+        budgetViewModel.getAllBudgetByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
+        budgetViewModel._budgetLiveData.observe(viewLifecycleOwner, Observer<MutableList<Budget>?>{
+            if (it.size>0){
+                listBudget=it
+                //Log.i("",listChecklist.size.toString())
+                var tot : Int = 0
+                for (budget in listBudget){
+                    tot = tot+budget.montant
+
+                }
+                used.text = tot.toString() + '$'
+
+            }
+
+        })
+
+
+        checklistViewModel.getAllChecklistByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
+        checklistViewModel._checklistLiveData.observe(viewLifecycleOwner, Observer<MutableList<Checklist>?>{
+            if (it.size>0){
+                listChecklist=it
+                //Log.i("",listChecklist.size.toString())
+                tasknb.text = listChecklist.size.toString()
+                var nb : Int = 0
+                for(checklist in listChecklist)
+                {
+
+                if(checklist.status == "Completed"){
+                     nb++
+                    nbcomp.text = nb.toString()
+
+                }else{
+                    nb
+                    nbcomp.text = nb.toString()
+                }
                 }
             }
+
+        })
+
+        guestViewModel.getAllGuestByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
+        guestViewModel._guestMutableLiveData.observe(viewLifecycleOwner, Observer<MutableList<Guest>?>{
+            if (it.size>0){
+                listGuest=it
+                //Log.i("",listChecklist.size.toString())
+                guesttv.text = listGuest.size.toString()
+                var nb : Int = 0
+                for(guest in listGuest)
+                {
+
+                    if(guest.note == "Confirmed"){
+                        nb++
+                        confnb.text = nb.toString()
+
+                    }else{
+                        nb
+                        confnb.text = nb.toString()
+                    }
+                }
+            }
+
+        })
+
+        mariageViewModel.getWeddingByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
+        mariageViewModel._weddingLiveData.observe(viewLifecycleOwner, Observer<MutableList<Wedding>?>{
+            if (it.size>0){
+                val budgetnb = it.get(0).budget
+                val nom = it.get(0).fullname
+                val nomp = it.get(0).partner_fullname
+                val date = it.get(0).date_ceremonie
+                Log.i("buddddgettt",budgetnb.toString())
+                budget.text = budgetnb.toString() + '$'
+                nmpt.text = nom + ' '+'&' + ' '+nomp
+                datem.setText(sdf.format(date))
+            }
+
+        })
+
+
+
+        return v
     }
+
+
+
 }

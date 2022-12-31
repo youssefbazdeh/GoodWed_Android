@@ -13,8 +13,8 @@ import tn.esprit.wedding.services.UserService
 
 class SignUpViewModel : ViewModel() {
 
-    var signUpLiveData: MutableLiveData<User> = MutableLiveData()
-    val _signUpLiveData : LiveData<User> = signUpLiveData
+    var signUpLiveData: MutableLiveData<User?> = MutableLiveData()
+    val _signUpLiveData : LiveData<User?> = signUpLiveData
 
     fun signUp(user:User){
         val retrofit= ApiClient.getApiClient()!!.create(UserService::class.java)

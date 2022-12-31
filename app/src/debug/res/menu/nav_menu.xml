@@ -35,10 +35,6 @@
                 android:id="@+id/nav_login"
                 android:icon="@drawable/ic_baseline_lock_open_24"
                 android:title="LogOut"/>
-
-
-
-
         </menu>
 
 
