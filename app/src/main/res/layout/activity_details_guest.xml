@@ -83,14 +83,17 @@
             android:id="@+id/nameguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
             android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/nameguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,6 +103,8 @@
             app:layout_constraintTop_toBottomOf="@+id/nameguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/lastnameguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
             app:layout_constraintTop_toBottomOf="@+id/nameguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/lastnameguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,6 +125,8 @@
 
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/sexeguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,6 +137,7 @@
             app:layout_constraintTop_toBottomOf="@+id/lastnameguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/sexeguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,6 +146,8 @@
             app:layout_constraintTop_toBottomOf="@+id/sexeguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/groupeguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,6 +158,7 @@
             app:layout_constraintTop_toBottomOf="@+id/sexeguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/groupeguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,6 +167,8 @@
             app:layout_constraintTop_toBottomOf="@+id/groupeguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/phoneguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,6 +179,7 @@
             app:layout_constraintTop_toTopOf="@+id/nameguest1" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/phoneguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,6 +188,8 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/emailguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,6 +200,7 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/emailguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,6 +209,8 @@
             app:layout_constraintTop_toBottomOf="@+id/emailguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/adresseguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,6 +221,7 @@
             app:layout_constraintTop_toBottomOf="@+id/emailguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/adresseguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -209,6 +230,8 @@
             app:layout_constraintTop_toBottomOf="@+id/adresseguest1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/noteguest1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -219,6 +242,7 @@
             app:layout_constraintTop_toBottomOf="@+id/adresseguest2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/noteguest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

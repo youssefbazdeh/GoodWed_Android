@@ -9,21 +9,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nominputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="144dp"
         android:hint="Full Name"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nominputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -32,45 +32,46 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/typeinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="232dp"
         android:hint="Type"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/typeinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="328dp"
         android:hint="Note"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/noteinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -78,73 +79,76 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/icooo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="116dp"
+        android:layout_height="108dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintBottom_toTopOf="@+id/nominputlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintVertical_bias="0.484" />
 
+    <TextView
+        android:id="@+id/picbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:text="Pick photo"
+        app:layout_constraintEnd_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
 
     <Button
         android:id="@+id/pickDateBtn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="436dp"
-        android:text="Birth Date"
+        android:layout_marginTop="444dp"
+        android:text="DeadLine"
         android:textAllCaps="false"
         android:textColor="#8A47EB"
         android:textSize="44px"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:cornerRadius="177dp"
         app:icon="@drawable/ic_baseline_calendar_month_24"
         app:iconTint="#8A47EB"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#8A47EB"
+        app:strokeColor="@color/gray_400"
         app:strokeWidth="1dp" />
 
     <TextView
         android:id="@+id/dateTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="12dp"
         android:text="dd-mm-yyyy"
-        android:textColor="#8A47EB"
+        android:textColor="@color/gray_600"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toEndOf="@+id/pickDateBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/pickDateBtn" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/statusinputlayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:id="@+id/dropdown_type_service"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="24dp"
         android:hint="Status"
-        android:textColorHint="#8A47EB"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toBottomOf="@+id/pickDateBtn">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/statusinputedit"
-            android:layout_width="300dp"
+        <AutoCompleteTextView
+            android:id="@+id/txt_type_service"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="53dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:enabled="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -152,13 +156,12 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="628dp"
         android:layout_marginEnd="56dp"
         android:text="Add Task"
         android:textAllCaps="false"
         android:textColor="#8A47EB"
         android:textSize="44px"
-        android:textStyle="bold"
         app:cornerRadius="177dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

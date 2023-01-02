@@ -23,10 +23,14 @@ import tn.esprit.wedding.retrofit.ApiClient
 import tn.esprit.wedding.services.ChecklistService
 import tn.esprit.wedding.views.DetailChecklistActivity
 import tn.esprit.wedding.views.UpdateChecklistActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ChecklistAdapter(val context: Context, private val listChecklists: MutableList<Checklist>) :
     RecyclerView.Adapter<ChecklistAdapter.ChecklistViewHolder>() {
+    val myFormat = "dd-MM-yyyy"
+    val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
 
 
 
@@ -41,9 +45,9 @@ class ChecklistAdapter(val context: Context, private val listChecklists: Mutable
         holder.cknom.setText(checklist.nom)
         Picasso.get().load(checklist.image).into(holder.status)
         holder.cktype.setText(checklist.type)
-        holder.ckdate.setText(checklist.date.toString())
+        holder.ckdate.setText(sdf.format(checklist.date).toString())
 
-        holder.ckdate.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val intent = Intent(context,DetailChecklistActivity::class.java)
             intent.putExtra("id",checklist._id)
             context.startActivity(intent)

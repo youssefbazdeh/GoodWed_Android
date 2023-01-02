@@ -11,7 +11,5 @@
     </style>
     <style name="customtoolbartheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryDark">@color/purple_500</item>
-        <item name="colorAccent">@color/purple_500</item>
     </style>
 </resources>

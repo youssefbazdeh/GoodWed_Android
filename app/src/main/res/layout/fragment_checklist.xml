@@ -12,14 +12,47 @@
         layout="@layout/activity_toolbar"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/button_completed"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compeleted"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_prog"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_completed"
+            app:layout_constraintTop_toTopOf="@+id/button_completed" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_checklist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="440dp"
+        android:layout_marginTop="16dp"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarchecklist"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toggleButtonGroup"
+        tools:layout_editor_absoluteX="16dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,21 +9,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nominputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="88dp"
         android:hint="titre"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombudget"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -32,22 +32,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/catinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="180dp"
         android:hint="categorie"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/catbudget"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -56,23 +55,23 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/montantinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="272dp"
         android:hint="montant"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/montantbudget"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,22 +79,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="364dp"
         android:hint="note"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/notebudget"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -106,9 +104,9 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="612dp"
-        android:layout_marginEnd="56dp"
-        android:text="Add Task"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="64dp"
+        android:text="Add Budget"
         android:textAllCaps="false"
         android:textColor="#8A47EB"
         android:textSize="44px"

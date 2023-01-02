@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,7 +37,7 @@ class GuestAdapter(val context: Context, private val listGuests: MutableList<Gue
         holder.guestlastname.setText(guest.lastname)
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, DetailsGuestActivity::class.java)
+            val intent = Intent( context , DetailsGuestActivity::class.java)
             intent.putExtra("id",guest._id)
             context.startActivity(intent)
         }

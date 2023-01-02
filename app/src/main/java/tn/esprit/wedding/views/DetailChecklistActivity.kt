@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
@@ -16,11 +17,15 @@ import tn.esprit.wedding.R
 import tn.esprit.wedding.models.Checklist
 import tn.esprit.wedding.models.ResponseChecklist
 import tn.esprit.wedding.viewmodels.ChecklistViewModel
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-class DetailChecklistActivity : AppCompatActivity() {
+class
+DetailChecklistActivity : AppCompatActivity() {
     val CAMERA_REQUEST_CODE = 1
     val GALLERY_REQUEST_CODE = 2
-    lateinit var imgUri: Uri
+    lateinit var imgUri: String
 
     lateinit var listChecklist: MutableList<Checklist>
     lateinit var checklistViewModel: ChecklistViewModel
@@ -32,6 +37,8 @@ class DetailChecklistActivity : AppCompatActivity() {
     lateinit var ivimage : ImageView
     lateinit var updateBtn : ImageView
     lateinit var idtask : TextView
+    val myFormat = "dd-MM-yyyy"
+    val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,16 +57,25 @@ class DetailChecklistActivity : AppCompatActivity() {
             val  x = idtask.text.toString()
             Log.i("aaaaaaaaaaaaaa",x)
             intent.putExtra("id",x)
+
             val nom = tvnom2.text.toString()
             intent.putExtra("nom",nom)
+
             val type = tvtype2.text.toString()
             intent.putExtra("type",type)
+
             val note = tvnote2.text.toString()
             intent.putExtra("note",note)
+
             val date = tvdate2.text.toString()
             intent.putExtra("date",date)
+
             val status = tvstatus2.text.toString()
             intent.putExtra("status",status)
+
+            val image = imgUri
+            intent.putExtra("image",image)
+
             startActivity(intent)
         }
 
@@ -80,53 +96,20 @@ class DetailChecklistActivity : AppCompatActivity() {
         checklistViewModel.getCheckListById(id)
         checklistViewModel._checklistLiveData1.observe(this, Observer<ResponseChecklist?>{
             if (it!=null){
-
+                Log.i("image uri",it.image!!)
+                imgUri = it.image!!
                 idtask.text = it._id.toString()
                 tvnom2.text = it.nom.toString()
                 tvtype2.text = it.type.toString()
                 tvnote2.text = it.note.toString()
                 Picasso.get().load(it.image).into(ivimage)
-                tvdate2.text = it.date.toString()
+                tvdate2.text = sdf.format(it.date).toString()
                 tvstatus2.text = it.status.toString()
 
             }
         })
 
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == Activity.RESULT_OK) {
-
-            when (requestCode) {
-
-                CAMERA_REQUEST_CODE -> {
-
-                    if (data != null && data.data != null) {
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            imgUri= data.data!!
-
-                            ivimage.setImageURI(imgUri)
-
-                        }
-                    }
-                }
-
-                GALLERY_REQUEST_CODE -> {
-
-                    if (data != null && data.data != null) {
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            imgUri= data.data!!
-
-                            ivimage.setImageURI(imgUri)
-
-                        }
-                    }
-                }
-            }
-
-        }
-
-    }
 
 }

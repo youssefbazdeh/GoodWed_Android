@@ -31,9 +31,7 @@ class UpdateProfileActivity : AppCompatActivity() {
     lateinit var dateTv1 : TextView
     lateinit var updateProfileViewModel: UpdateProfileViewModel
     lateinit var prefs : SharedPreferences
-    lateinit var role : TextView
-    lateinit var __v : TextView
-    lateinit var  idddd: TextView
+
     val myFormat = "dd-MM-yyyy"
     val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
 
@@ -50,9 +48,6 @@ class UpdateProfileActivity : AppCompatActivity() {
         confBtn = findViewById(R.id.confBtn)
         pickDateBtn1 = findViewById(R.id.pickDateBtn1)
         dateTv1 = findViewById(R.id.dateTv1)
-        role = findViewById(R.id.RoleDiscret)
-        __v = findViewById(R.id.__vDiscret)
-        idddd = findViewById(R.id.idDiscret)
         prefs = getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE)
 
 
@@ -87,11 +82,10 @@ class UpdateProfileActivity : AppCompatActivity() {
         updateProfileViewModel.getUserById(user_id)
         updateProfileViewModel._UserLiveData.observe(this, Observer<ResponseUser?> {
             if (it!=null){
-                idddd.setText(it._id)
                 usernameinputedit.setText(it.username)
                 fullnameinputedit.setText(it.fullname)
                 emailinputedit.setText(it.email)
-                dateTv1.setText(it.datedenaissance.toString())
+                dateTv1.setText(sdf.format(it.datedenaissance).toString())
                 passwordinputedit.setText(it.password)
             }else{
                 Toast.makeText(this,"Affichage ne marche pas",Toast.LENGTH_SHORT).show()

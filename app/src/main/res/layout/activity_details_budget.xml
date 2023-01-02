@@ -83,14 +83,17 @@
             android:id="@+id/nombudget1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:text="Nom"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textSize="20dp"
+
             android:id="@+id/nombudget2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,6 +103,8 @@
             app:layout_constraintTop_toBottomOf="@+id/nombudget1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/categorie1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,6 +116,7 @@
 
         <TextView
             android:id="@+id/categorie2"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categorie"
@@ -118,6 +124,8 @@
             app:layout_constraintTop_toBottomOf="@+id/categorie1" />
 
         <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:id="@+id/montant1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,6 +136,7 @@
             app:layout_constraintTop_toBottomOf="@+id/nombudget2" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/montant2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,13 +149,15 @@
             android:id="@+id/note1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="Note"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/categorie1"
-            app:layout_constraintTop_toBottomOf="@+id/categorie2" />
+            app:layout_constraintTop_toTopOf="@+id/montant1" />
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/note2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

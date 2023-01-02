@@ -13,14 +13,12 @@
 
         <ImageView
             android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/ic_baseline_lock_open_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/delete"
@@ -28,11 +26,12 @@
             android:layout_height="41dp"
             android:layout_marginTop="4dp"
             android:src="@drawable/ic_baseline_delete_24"
-            app:layout_constraintEnd_toStartOf="@+id/ckdate"
-            app:layout_constraintStart_toEndOf="@+id/cktype"
+            app:tint="@color/purple_200"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginTop="5dp"
             android:id="@+id/cknom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,10 +52,10 @@
             android:id="@+id/ckdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
             android:text="12/12/2022"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete"
             app:layout_constraintTop_toTopOf="parent" />
 
 

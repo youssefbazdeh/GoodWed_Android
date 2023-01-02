@@ -1,26 +1,34 @@
 package tn.esprit.wedding.views
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.view.View
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.textfield.TextInputEditText
 import tn.esprit.wedding.R
 import tn.esprit.wedding.models.Budget
 import tn.esprit.wedding.models.Guest
+import tn.esprit.wedding.viewmodels.AddGuestViewModel
 import tn.esprit.wedding.viewmodels.GuestViewModel
 import tn.esprit.wedding.viewmodels.UpdateGuestViewModel
+import java.util.ArrayList
 
 class UpdateGuestActivity : AppCompatActivity() {
-    lateinit var name : EditText
-    lateinit var lastname : EditText
-    lateinit var sexe : EditText
-    lateinit var groupe : EditText
-    lateinit var phone : EditText
-    lateinit var email : EditText
-    lateinit var adresse : EditText
-    lateinit var note : EditText
-    lateinit var ajouterguest : Button
+    var arrayAdapter: ArrayAdapter<String>? = null
+    var arrayAdapter1: ArrayAdapter<String>? = null
+    lateinit var listNote: ArrayList<String>
+    lateinit var listSexe: ArrayList<String>
+    lateinit var name : TextInputEditText
+    lateinit var lastname : TextInputEditText
+    lateinit var groupe : TextInputEditText
+    lateinit var phone : TextInputEditText
+    lateinit var email : TextInputEditText
+    lateinit var adresse : TextInputEditText
+    lateinit var txt_type_service : AutoCompleteTextView
+    lateinit var genre : AutoCompleteTextView
+    lateinit var ajouter : Button
     lateinit var updateGuestViewModel: UpdateGuestViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,13 +37,13 @@ class UpdateGuestActivity : AppCompatActivity() {
 
         name = findViewById(R.id.nameguest)
         lastname = findViewById(R.id.lastnameguest)
-        sexe = findViewById(R.id.sexeguest)
+        genre = findViewById(R.id.sexe)
         groupe = findViewById(R.id.groupeguest)
         phone = findViewById(R.id.phoneguest)
         email = findViewById(R.id.emailguest)
         adresse = findViewById(R.id.adresseguest)
-        note = findViewById(R.id.noteguest)
-        ajouterguest = findViewById(R.id.ajouterguest)
+        txt_type_service = findViewById(R.id.txt_type_service)
+        ajouter = findViewById(R.id.ajouterguest)
         updateGuestViewModel = ViewModelProvider(this).get(UpdateGuestViewModel::class.java)
 
 
@@ -45,7 +53,7 @@ class UpdateGuestActivity : AppCompatActivity() {
         var last = intent.getStringExtra("lastname")
         lastname.setText(last)
         var sex = intent.getStringExtra("sexe")
-        sexe.setText(sex)
+        genre.setText(sex)
         var grp = intent.getStringExtra("groupe")
         groupe.setText(grp)
         var ph = intent.getStringExtra("phone")
@@ -55,24 +63,70 @@ class UpdateGuestActivity : AppCompatActivity() {
         var adr = intent.getStringExtra("adresse")
         adresse.setText(adr)
         var not = intent.getStringExtra("note")
-        note.setText(not)
+        txt_type_service.setText(not)
 
-
-        ajouterguest.setOnClickListener {
+        serviceTypeDropdown()
+        serviceTypeDropdown1()
+        ajouter.setOnClickListener {
             UpdateGuest(id!!)
             finish()
         }
 
 
     }
+    private fun serviceTypeDropdown(){
+        listNote = ArrayList<String>()
+        listNote.add("Confirmed")
+        listNote.add("Not Confirmed")
+        arrayAdapter = ArrayAdapter<String>(
+            this,
+            R.layout.item_dropdown,
+            listNote
+        )
+        txt_type_service.setAdapter(arrayAdapter)
+        txt_type_service.setOnItemClickListener(object :
+            AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+            }
+        })
+    }
+    private fun serviceTypeDropdown1(){
+        listSexe = ArrayList<String>()
+        listSexe.add("Homme")
+        listSexe.add("Femme")
+        listSexe.add("Autre")
+        arrayAdapter1 = ArrayAdapter<String>(
+            this,
+            R.layout.item_dropdown,
+            listSexe
+        )
+        genre.setAdapter(arrayAdapter1)
+        genre.setOnItemClickListener(object :
+            AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+            }
+        })
+    }
     private fun UpdateGuest (id : String){
         val name = name.text.toString().trim()
         val last = lastname.text.toString().trim()
         val ph = Integer.parseInt(phone.text.toString().trim())
-        val sex = sexe.text.toString().trim()
+        val sex = genre.text.toString().trim()
         val grp = groupe.text.toString().trim()
         val adr = adresse.text.toString().trim()
-        val not = note.text.toString().trim()
+        val not = txt_type_service.text.toString().trim()
         val em = email.text.toString().trim()
         val guest = Guest(id,name,last,sex,grp,ph,em,adr,not,",0")
         updateGuestViewModel.updateGuest(id,guest)

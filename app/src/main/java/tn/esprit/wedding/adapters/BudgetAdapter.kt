@@ -3,6 +3,7 @@ package tn.esprit.wedding.adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +36,7 @@ class BudgetAdapter(val context: Context, private val listBudgets: MutableList<B
     override fun onBindViewHolder(holder: BudgetViewHolder, position: Int) {
         val budget = listBudgets[position]
         holder.budgetnom.setText(budget.nom)
-        holder.budgetmontant.setText(budget.montant.toString())
+        holder.budgetmontant.setText(budget.montant.toString()+'$')
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailsBudgetActivity::class.java)

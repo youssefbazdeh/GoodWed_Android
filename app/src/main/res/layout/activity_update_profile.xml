@@ -10,22 +10,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="176dp"
         android:hint="Username"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -34,22 +33,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fullnameinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
         android:hint="Fullname"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fullnameinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -59,22 +57,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="364dp"
         android:hint="Email"
+        android:padding="15dp"
         android:textColorHint="#8A47EB"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
@@ -85,40 +82,40 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="436dp"
+        android:layout_marginTop="460dp"
         android:text="Birth Date"
         android:textAllCaps="false"
         android:textColor="#8A47EB"
         android:textSize="44px"
-        android:textStyle="bold"
         app:cornerRadius="177dp"
         app:icon="@drawable/ic_baseline_calendar_month_24"
         app:iconTint="#8A47EB"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#8A47EB"
+        app:strokeColor="@color/gray_400"
         app:strokeWidth="1dp" />
 
     <TextView
         android:id="@+id/dateTv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="472dp"
         android:text="dd-mm-yyyy"
-        android:textColor="#8A47EB"
+        android:textColor="@color/gray_600"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toEndOf="@+id/pickDateBtn1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="15dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="520dp"
         android:hint="Password"
@@ -126,26 +123,25 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="#8A47EB">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordinputedit"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="56dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/confBtn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="624dp"
         android:layout_marginEnd="56dp"
-        android:text="Confrim "
+        android:text="Update Profile"
         android:textAllCaps="false"
         android:textColor="#8A47EB"
         android:textSize="44px"
@@ -156,35 +152,6 @@
         app:strokeColor="#8A47EB"
         app:strokeWidth="1dp"
         tools:ignore="PxUsage" />
-
-
-    <TextView
-        android:id="@+id/idDiscret"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/RoleDiscret"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="role"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/__vDiscret"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="8dp"
-        android:text="__v"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/im"
@@ -197,15 +164,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#8A47EB" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="37dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="164dp"
-        android:background="#8A47EB"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

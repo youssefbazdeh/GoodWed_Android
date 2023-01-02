@@ -12,10 +12,9 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProvider
 import coil.imageLoader
 import com.google.android.material.textfield.TextInputEditText
@@ -51,10 +50,12 @@ class UpdateChecklistActivity : AppCompatActivity() {
     val IMAGE_GALLERY_REQUEST_CODE: Int = 2001
     lateinit var imgUri: Uri
 
+    var arrayAdapter: ArrayAdapter<String>? = null
+    lateinit var listStatus:ArrayList<String>
     internal lateinit var nominputedit1  : TextInputEditText
     lateinit var typeinputedit1 : TextInputEditText
     lateinit var noteinputedit1 : TextInputEditText
-    lateinit var statusinputedit1 : TextInputEditText
+    lateinit var txt_type_service : AutoCompleteTextView
     lateinit var confBtn : Button
     lateinit var pickDateBtn1 : Button
     lateinit var dateTv1 : TextView
@@ -71,7 +72,7 @@ class UpdateChecklistActivity : AppCompatActivity() {
         nominputedit1 = findViewById(R.id.nominputedit1)
         typeinputedit1 = findViewById(R.id.typeinputedit1)
         noteinputedit1 = findViewById(R.id.noteinputedit1)
-        statusinputedit1 = findViewById(R.id.statusinputedit1)
+        txt_type_service = findViewById(R.id.txt_type_service)
         confBtn = findViewById(R.id.confBtn)
         pickDateBtn1 = findViewById(R.id.pickDateBtn1)
         dateTv1 = findViewById(R.id.dateTv1)
@@ -81,18 +82,26 @@ class UpdateChecklistActivity : AppCompatActivity() {
 
 
         var id = intent.getStringExtra("id")
+
         var nom = intent.getStringExtra("nom")
         nominputedit1.setText(nom)
+
         var type = intent.getStringExtra("type")
         typeinputedit1.setText(type)
+
         var note = intent.getStringExtra("note")
         noteinputedit1.setText(note)
+
         var date = intent.getStringExtra("date")
         dateTv1.setText(date)
+
         var status = intent.getStringExtra("status")
-        statusinputedit1.setText(status)
+        txt_type_service.setText(status)
 
+        var image = intent.getStringExtra("image")
+        Picasso.get().load(image!!.toUri()).into(im)
 
+        serviceTypeDropdown()
 
 
         val myCalendar = Calendar.getInstance()
@@ -132,6 +141,28 @@ class UpdateChecklistActivity : AppCompatActivity() {
         }
 
     }
+    private fun serviceTypeDropdown(){
+        listStatus =ArrayList<String>()
+        listStatus.add("Completed")
+        listStatus.add("In progress")
+        arrayAdapter = ArrayAdapter<String>(
+            this,
+            R.layout.item_dropdown,
+            listStatus
+        )
+        txt_type_service.setAdapter(arrayAdapter)
+        txt_type_service.setOnItemClickListener(object :
+            AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+            }
+        })
+    }
 
     private fun UpdateChecklist(id: String) {
         updateChecklistViewModel= ViewModelProvider(this).get(UpdateChecklistViewModel::class.java)
@@ -153,7 +184,7 @@ class UpdateChecklistActivity : AppCompatActivity() {
         val nom= nominputedit1.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         val type= typeinputedit1.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         val note = noteinputedit1.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        val status = statusinputedit1.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val status = txt_type_service.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         updateChecklistViewModel.updateChecklist(id,nom,type,note,dd,image,status)
 
     }

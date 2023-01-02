@@ -14,10 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputEditText
@@ -34,6 +32,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.w3c.dom.Text
 import tn.esprit.wedding.*
 import tn.esprit.wedding.models.Checklist
 import tn.esprit.wedding.viewmodels.TaskViewModel
@@ -51,10 +50,14 @@ class TaskActivity : AppCompatActivity() {
     lateinit var imgUri: Uri
 
     //Declaration
+    var arrayAdapter: ArrayAdapter<String>? = null
+    lateinit var listStatus:ArrayList<String>
+    lateinit var txtTypeService: AutoCompleteTextView
     lateinit var nominputedit : TextInputEditText
     lateinit var typeinputedit : TextInputEditText
     lateinit var noteinputedit : TextInputEditText
-    lateinit var statusinputedit : TextInputEditText
+    lateinit var picbtn : TextView
+//    lateinit var statusinputedit : TextInputEditText
     lateinit var pickDateBtn : Button
     lateinit var dateTv : TextView
     lateinit var image : ImageView
@@ -71,14 +74,17 @@ class TaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
 
+        txtTypeService= findViewById(R.id.txt_type_service)
         nominputedit = findViewById(R.id.nominputedit)
         typeinputedit = findViewById(R.id.typeinputedit)
         noteinputedit = findViewById(R.id.noteinputedit)
-        statusinputedit = findViewById(R.id.statusinputedit)
         pickDateBtn = findViewById(R.id.pickDateBtn)
         dateTv = findViewById(R.id.dateTv)
         image = findViewById(R.id.image)
         addBtn = findViewById(R.id.addBtn)
+        picbtn = findViewById(R.id.picbtn)
+
+        serviceTypeDropdown()
 
 
         val myCalendar = Calendar.getInstance()
@@ -97,8 +103,6 @@ class TaskActivity : AppCompatActivity() {
 
 
         image.setOnClickListener {
-            cameraCheckPermission()
-            galleryCheckPermission()
             val pictureDialog = AlertDialog.Builder(this)
             pictureDialog.setTitle("Select Action")
             val pictureDialogItem = arrayOf("Select photo from Gallery",
@@ -113,12 +117,38 @@ class TaskActivity : AppCompatActivity() {
 
             pictureDialog.show()
         }
+        picbtn.setOnClickListener {
+            cameraCheckPermission()
+            galleryCheckPermission()
+        }
 
         addBtn.setOnClickListener {
             addTask(this.getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"").toString().trim().toRequestBody("text/plain".toMediaTypeOrNull()))
         }
 
 
+    }
+    private fun serviceTypeDropdown(){
+        listStatus =ArrayList<String>()
+        listStatus.add("Completed")
+        listStatus.add("In progress")
+        arrayAdapter = ArrayAdapter<String>(
+            this,
+            R.layout.item_dropdown,
+            listStatus
+        )
+        txtTypeService.setAdapter(arrayAdapter)
+        txtTypeService.setOnItemClickListener(object :
+            AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+            }
+        })
     }
 
     private fun addTask (user_id : RequestBody) {
@@ -133,7 +163,7 @@ class TaskActivity : AppCompatActivity() {
         val nom = nominputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         val type = typeinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
         val note = noteinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
-        val status = statusinputedit.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
+        val status = txtTypeService.text.toString().trim().toRequestBody("text/plain".toMediaTypeOrNull())
 
 
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)

@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/menu/baseline_menu_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialiconsoutlined/screen_share/outline_screen_share_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,7 +33,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_menu_24" />
+                            <entry key="outputName" value="ic_outline_screen_share_24" />
                             <entry key="sourceFile" value="C:\Users\USER\Desktop\wedding (2)\wedding" />
                           </map>
                         </option>

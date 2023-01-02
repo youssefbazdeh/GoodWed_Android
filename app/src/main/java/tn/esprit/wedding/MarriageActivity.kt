@@ -271,7 +271,7 @@ class MarriageActivity : AppCompatActivity() {
             if (it!=null){
                 Toast.makeText(applicationContext, "ajout succes !", Toast.LENGTH_LONG).show()
                 finish()
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
 
             }else{
                 Toast.makeText(applicationContext, "Login failed !", Toast.LENGTH_LONG).show()

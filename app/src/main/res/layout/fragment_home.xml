@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:background="@color/white">
+        android:background="@drawable/home">
 
         <ImageView
             android:layout_width="match_parent"
@@ -54,110 +54,22 @@
             android:layout_marginStart="51dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="51dp"
-            android:layout_marginBottom="86dp"
             android:text="Omar &amp; Youssef"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="13dp"/>
 
-        <TextView
-            android:id="@+id/hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/coeur"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="113dp"
-            android:text="20 :"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/days"
+            android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/coeur"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="150dp"
-            android:text="105 :"
+            android:layout_below="@+id/nmpt"
+            android:layout_alignEnd="@+id/nmpt"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="105 : 20 : 36 : 05"
             android:textColor="@color/white"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/dt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/days"
-            android:layout_marginEnd="22dp"
-            android:layout_toStartOf="@+id/hours"
-            android:text="days"
-            android:textColor="@color/white"
-            android:textSize="6dp" />
-
-        <TextView
-            android:id="@+id/ht"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/days"
-
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@+id/min"
-            android:text="hours"
-            android:textColor="@color/white"
-            android:textSize="6dp" />
-
-        <TextView
-            android:id="@+id/tmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/days"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="17dp"
-            android:layout_toStartOf="@+id/sec"
-            android:text="min."
-            android:textColor="@color/white"
-            android:textSize="6dp" />
-
-        <TextView
-            android:id="@+id/tsec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sec"
-            android:layout_alignEnd="@+id/sec"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="4dp"
-            android:text="sec."
-            android:textColor="@color/white"
-            android:textSize="6dp" />
-
-        <TextView
-            android:id="@+id/sec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/coeur"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="49dp"
-            android:text="05"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/min"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/coeur"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="75dp"
-            android:text="36 :"
-            android:textColor="@color/white"
-            android:textSize="17dp"
             android:textStyle="bold" />
 
         <TextView

@@ -17,6 +17,12 @@ interface ChecklistService {
         @Path("id") id: String,
     ): Call<MutableList<Checklist>>
 
+    @GET("checklist/{user_id}/{status}")
+    fun getAllChecklistByStatus(
+        @Path("user_id") user_id: String,
+        @Path("status") status: String,
+    ): Call<MutableList<Checklist>>
+
     @GET("checklist/{id}")
     fun getChecklistById(
         @Path("id") id : String,

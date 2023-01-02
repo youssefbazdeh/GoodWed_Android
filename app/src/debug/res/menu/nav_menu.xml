@@ -20,10 +20,7 @@
         android:id="@+id/guestsFragment"
         android:icon="@drawable/ic_outline_supervisor_account_24"
         android:title="Guests" />
-    <item
-        android:id="@+id/vendorsFragment"
-        android:icon="@drawable/ic_outline_home_repair_service_24"
-        android:title="Vendors" />
+
     <item
             android:id="@+id/menuFragment"
             android:icon="@drawable/ic_outline_menu_24"

@@ -26,6 +26,34 @@ class ChecklistViewModel: ViewModel() {
     val _checklistLiveData1 : LiveData<ResponseChecklist?> = checklistLiveData1
 
 
+    var checkliststatusLiveData: MutableLiveData<MutableList<Checklist>?> = MutableLiveData()
+    val _checkliststatusLiveData : LiveData<MutableList<Checklist>?> = checkliststatusLiveData
+
+
+    fun getAllChecklistByStatus(user_id: String,status: String){
+        val retrofit= ApiClient.getApiClient()!!.create(ChecklistService::class.java)
+        val getChecklist=retrofit.getAllChecklistByStatus(user_id,status)
+        getChecklist.enqueue(object : Callback<MutableList<Checklist>> {
+            override fun onResponse(call: Call<MutableList<Checklist>>, response: Response<MutableList<Checklist>>) {
+                if (response.isSuccessful){
+                    checklistLiveData.postValue(response.body())
+                }else{
+                    Log.i("errorBody",  response.errorBody()!!.string())
+
+                    checklistLiveData.postValue(response.body())
+                }
+
+            }
+
+            override fun onFailure(call: Call<MutableList<Checklist>>, t: Throwable) {
+                checklistLiveData.postValue(null)
+                Log.i("failure",  t.message.toString())
+            }
+
+        })
+    }
+
+
 
 
 

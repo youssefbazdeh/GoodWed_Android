@@ -1,7 +1,9 @@
 package tn.esprit.wedding
 
 import android.content.Intent
+import android.content.IntentSender.OnFinished
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,6 +28,7 @@ import tn.esprit.wedding.views.AddGuestActivity
 import tn.esprit.wedding.views.UpdateGuestActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
@@ -48,6 +51,7 @@ class HomeFragment : Fragment() {
     lateinit var confnb : TextView
     lateinit var menubtn : ImageView
     lateinit var toolbar : Toolbar
+    lateinit var timer : TextView
     val myFormat = "dd-MM-yyyy"
     val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
 
@@ -74,6 +78,7 @@ class HomeFragment : Fragment() {
         nbcomp = v.findViewById(R.id.nbcomp)
         used = v.findViewById(R.id.used)
         confnb = v.findViewById(R.id.confnb)
+        timer = v.findViewById(R.id.timer)
         listChecklist = ArrayList()
         listMarriage = ArrayList()
         listGuest = ArrayList()
@@ -81,6 +86,7 @@ class HomeFragment : Fragment() {
 
        toolbar = v.findViewById<MaterialToolbar>(R.id.toolbarmain)
         toolbar.setTitle("Home")
+        toolbar.setCollapseIcon(R.drawable.ic_baseline_add_24)
         toolbar.setNavigationOnClickListener {
         }
         toolbar.setOnMenuItemClickListener {
@@ -161,6 +167,7 @@ class HomeFragment : Fragment() {
         mariageViewModel.getWeddingByIdUser(requireContext().getSharedPreferences(PREF_LOGIN, AppCompatActivity.MODE_PRIVATE).getString(ID,"")!!)
         mariageViewModel._weddingLiveData.observe(viewLifecycleOwner, Observer<MutableList<Wedding>?>{
             if (it.size>0){
+                var listwed : MutableList<Wedding> = it.toMutableList()
                 val budgetnb = it.get(0).budget
                 val nom = it.get(0).fullname
                 val nomp = it.get(0).partner_fullname
@@ -169,6 +176,12 @@ class HomeFragment : Fragment() {
                 budget.text = budgetnb.toString() + '$'
                 nmpt.text = nom + ' '+'&' + ' '+nomp
                 datem.setText(sdf.format(date))
+                var date_cere : Long = 12
+                var sysdate : Long = 1
+                //var duration : Long = TimeUnit.DAYS.toHours()
+                countdown()
+                //(Integer.parseInt(sdf.format(it.get(0).date_ceremonie!!).toString())-Integer.parseInt(sdf.format(Calendar.getInstance().time).toString())).toLong()
+
             }
 
         })
@@ -179,5 +192,33 @@ class HomeFragment : Fragment() {
     }
 
 
+    fun countdown() {
+        var duration: Long = TimeUnit.DAYS.toSeconds(2)
+        Log.i("duration",duration.toString())
 
+
+        object : CountDownTimer(duration, 10) {
+            override fun onTick(secondsUntilFinished: Long) {
+                var sDuration: String = String.format(
+                    Locale.ENGLISH,
+                    "%02d:%02d:%02d:%02d",
+                    TimeUnit.MILLISECONDS.toDays( duration )%3600,
+                    TimeUnit.SECONDS.toHours( duration )%60,
+                    TimeUnit.SECONDS.toMinutes(duration )%60,
+                    TimeUnit.MILLISECONDS.toSeconds(duration)
+                )
+
+                timer.text = sDuration
+
+            }
+
+            override fun onFinish() {
+                timer.setText("Time up!");
+                timer.setVisibility(View.VISIBLE);
+
+
+            }
+        }
+            .start()
+    }
 }
